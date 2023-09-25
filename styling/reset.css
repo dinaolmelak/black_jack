@@ -9,3 +9,10 @@
     width: 400px; 
     height: 30vh;
 }
+
+#callToAction{
+    /* add your styles here */
+    width: 600px;
+    float: center;
+    height: 30vh;
+}
