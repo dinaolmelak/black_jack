@@ -22,7 +22,7 @@
     background-color: aqua;
 }
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 800px){
     #whyUs{
         /* add your styles here */
         width: 400px;
