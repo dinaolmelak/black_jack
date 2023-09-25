@@ -1,0 +1,42 @@
+#hero{
+    /* add your styles here */
+    width: 100%;
+    height: 30vh;
+}
+
+#whyUs{
+    /* add your styles here */
+    width: 400px; 
+    height: 30vh;
+}
+
+#callToAction{
+    /* add your styles here */
+    width: 600px float;
+    height: 30vh;
+    
+}
+
+#callToAction button{
+    color: rgb(0, 0, 0);
+    background-color: aqua;
+}
+
+@media screen and (max-width: 600px) {
+    #whyUs{
+        /* add your styles here */
+        width: 400px;
+        height: 30vh;
+    }
+    
+    #callToAction{
+        /* add your styles here */
+        width: 400px;
+        height: 30vh;
+    }
+    
+    #callToAction button{
+        color: rgb(0, 0, 0);
+        background-color: aqua;
+    }
+}
