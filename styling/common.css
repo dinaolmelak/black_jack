@@ -1,5 +1,4 @@
 header{
-    /* add your styles here */
     width: 100%;
     height: 10vh;
     background-color: mediumorchid;
@@ -9,6 +8,12 @@ header{
     align-items: center;
     position: fixed;
     top: 0px;
+    display: flex;
+}
+header nav ul{
+    display: flex;
+    justify-content:center;
+    align-items:flex-start;
 }
 footer{
     width: 100%;
@@ -20,6 +25,12 @@ footer{
     display: flex;
     justify-content: space-between;
     align-items: center;
+}
+
+main{
+    position: center;
+    padding-top: 50px;
+    padding-bottom: 100px;
 }
 
 #hero{
@@ -87,7 +98,7 @@ li{
         inset 2px 2px 3px rgba(0, 0, 0, 0.6);
     }
 
-@media screen and (max-width: 800px){
+@media  (max-width: 800px){
     #whyUs{
         /* add your styles here */
         width: 100%;
@@ -105,4 +116,5 @@ li{
         background-color: aqua;
     }
 }
+
 

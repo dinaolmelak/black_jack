@@ -3,12 +3,19 @@ header{
     width: 100%;
     height: 10vh;
     background-color: mediumorchid;
-    color: white;
+    color: white; 
     display: flex;
     justify-content: space-between;
     align-items: center;
     position: fixed;
     top: 0px;
+    display: flex;
+}
+header nav > ul{
+    /* add your styles here */
+    display: flex;
+    justify-content:center;
+    align-items:flex-start;
 }
 footer{
     width: 100%;
@@ -20,31 +27,12 @@ footer{
     display: flex;
     justify-content: space-between;
     align-items: center;
-    
 }
 
-footer #copyright{
-    position: absolute;
-    right: 10px;
-    bottom: 10px;
-}
-
-body{
-    background-color: #fcb4b4;
-    
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 1.2em;
-    margin: 0;
-    padding: 0;
-
-}
-
-    /* .active{
-        background-color: purple;
-    } */
-li{
-    display: inline;
-    list-style-type: circle;
+main{
+    position: center;
+    padding-top: 100px;
+    padding-bottom: 100px;
 }
 
 #hero{
@@ -102,17 +90,17 @@ li{
         inset -2px -2px 3px rgba(0, 0, 0, 0.6);
     }
 
-.styled:hover {
+    .styled:hover {
     background-color: rgba(255, 0, 0, 1);
-}
+    }
 
-.styled:active {
+    .styled:active {
     box-shadow:
         inset -2px -2px 3px rgba(255, 255, 255, 0.6),
         inset 2px 2px 3px rgba(0, 0, 0, 0.6);
-}
+    }
 
-@media screen and (max-width: 800px) {
+@media  (max-width: 800px){
     #whyUs{
         /* add your styles here */
         width: 100%;
@@ -130,3 +118,5 @@ li{
         background-color: aqua;
     }
 }
+
+
