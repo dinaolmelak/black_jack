@@ -2,6 +2,15 @@
     font-family: 'Shadows Into Light', cursive;
 }
 
+h1{
+    font-family: 'Limelight', cursive;
+    font-size: 40px;
+    margin: 20px
+}
+#copyright{
+    font-size: 10px;
+}
+
 header{
     /* add your styles here */
     width: 100%;
@@ -122,8 +131,3 @@ li{
         background-color: aqua;
     }
 }
-
-h1{
-    font-family: 'Limelight', cursive;
-}
-
