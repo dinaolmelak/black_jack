@@ -10,9 +10,7 @@ h1{
 #copyright{
     font-size: 10px;
 }
-
 header{
-    /* add your styles here */
     width: 100%;
     height: 10vh;
     background-color: mediumorchid;
@@ -24,8 +22,12 @@ header{
     top: 0px;
     display: flex;
 }
-header nav > ul{
-    /* add your styles here */
+/* 0-0-2 */
+header nav{
+    display: flex;
+}
+/* 0-0-3 */
+header nav ul{
     display: flex;
     justify-content:center;
     align-items:flex-start;
@@ -44,7 +46,7 @@ footer{
 
 main{
     position: center;
-    padding-top: 100px;
+    padding-top: 50px;
     padding-bottom: 100px;
 }
 
@@ -113,15 +115,14 @@ li{
     inset 2px 2px 3px rgba(0, 0, 0, 0.6);
 }
 
-@media  (max-width: 800px){
+/* @media  (max-width: 800px){
     #whyUs{
-        /* add your styles here */
+        
         width: 100%;
         height: 30vh;
     }
     
     #callToAction{
-        /* add your styles here */
         width: 100%;
         height: 30vh;
     }
@@ -131,3 +132,5 @@ li{
         background-color: aqua;
     }
 }
+
+ */
