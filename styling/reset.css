@@ -1,3 +1,9 @@
+* {
+    font-family: 'Shadows Into Light', cursive;
+}
+h1{
+    font-family: 'Limelight', cursive;
+}
 header{
     /* add your styles here */
     width: 100%;
