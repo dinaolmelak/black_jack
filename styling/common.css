@@ -50,25 +50,6 @@ main{
     padding-bottom: 100px;
 }
 
-#hero{
-    width: 1000px;
-    height: 30vh;
-}
-
-#whyUs{
-    width: 400px; 
-    height: 30vh;
-}
-
-#callToAction{
-    width: 400px;
-    height: 30vh;
-}
-
-#callToAction button{
-    color: rgb(0, 0, 0);
-    background-color: aqua;
-}
 body{
     background-color: #fcb4b4;
     
@@ -109,6 +90,25 @@ li{
     box-shadow:
     inset -2px -2px 3px rgba(255, 255, 255, 0.6),
     inset 2px 2px 3px rgba(0, 0, 0, 0.6);
+}
+#hero{
+    width: 1000px;
+    height: 30vh;
+}
+
+#whyUs{
+    width: 400px; 
+    height: 30vh;
+}
+
+#callToAction{
+    width: 400px;
+    height: 30vh;
+}
+
+#callToAction button{
+    color: rgb(0, 0, 0);
+    background-color: aqua;
 }
 
 @media  (max-width: 800px){
