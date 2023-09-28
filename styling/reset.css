@@ -101,7 +101,7 @@ li{
 }
 
 #callToAction{
-    width: 400px; 
+    width: 600px; 
     height: 30vh;
     
 }
@@ -117,7 +117,7 @@ li{
     }
     
     #callToAction{
-        width: 400px !important;
+        width: 400px;
         height: 30vh;
     }
     
