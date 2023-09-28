@@ -102,7 +102,7 @@ li{
 }
 
 #callToAction{
-    width: 400px;
+    width: 400px !important;
     height: 30vh;
 }
 
