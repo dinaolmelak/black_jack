@@ -52,8 +52,6 @@ main{
 
 body{
     background-color: #fcb4b4;
-    
-    font-family: Arial, Helvetica, sans-serif;
     font-size: 1.2em;
     margin: 0;
     padding: 0;
@@ -103,7 +101,7 @@ li{
 }
 
 #callToAction{
-    width: 400px !important;
+    width: 400px; 
     height: 30vh;
     
 }
@@ -119,7 +117,7 @@ li{
     }
     
     #callToAction{
-        width: auto;
+        width: 400px !important;
         height: 30vh;
     }
     
