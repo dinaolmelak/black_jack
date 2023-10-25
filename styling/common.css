@@ -34,6 +34,7 @@ h1{
 }
 #copyright{
     font-size: 10px;
+    position: absolute;
 }
 header,footer{
     background-color: var(--purple);
