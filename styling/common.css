@@ -132,7 +132,7 @@ li{
     background-color: aqua;
 }
 
-@media screen and (min-width: 900px){
+@media screen and (min-width: 800px){
     .disappearing{
         display: block;
     }
@@ -141,24 +141,18 @@ li{
     }
 }
 
-@media screen and (min-width: 500px) and (max-width: 900px){
-    .desktopFeature{
-        display: block;
-    }
+@media screen and (min-width: 500px) and (max-width: 800px){
+    
     .mobileFeature{
         display: none;
     }
 }
 
 @media screen and (max-width: 499px){
-    .desktopFeature{
-        display: none;
-    }
+    
     .mobileFeature{
         display: block;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
+        
     }
 }
 
