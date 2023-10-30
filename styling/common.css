@@ -144,7 +144,7 @@ li{
 @media (min-width: 500px) and (max-width: 800px){
     
     .mobileFeature{
-        display: none;
+        display: block;
     }
 }
 
