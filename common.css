@@ -9,8 +9,9 @@
     --blue: #0000ff;
     --purple: mediumorchid;
 }
-* {
+h1,h2 {
     font-family: 'Shadows Into Light', cursive;
+    font-size: 25px;
 }
 
 a, a:link{
@@ -88,9 +89,8 @@ main{
 
 body{
     background-color: #fcb4b4;
-    font-size: 1.2em;
     margin: 0;
-    padding: 0;
+    padding-top: 20px;
     
 }
 button{
