@@ -134,7 +134,7 @@ li{
 
 @media screen and (min-width: 900px){
     .disappearing{
-        display: block;
+        display: none;
     }
     
 }
