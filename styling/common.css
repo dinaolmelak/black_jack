@@ -132,6 +132,29 @@ li{
     background-color: aqua;
 }
 
+@media screen and (min-width: 900px){
+    .disappearing{
+        display: block;
+    }
+    
+}
+
+@media screen and (min-width: 500px) and (max-width: 900px){
+    .desktopFeature{
+        display: none;
+    }
+    
+}
+
+@media screen and (max-width: 499px){
+    .mobileFeature{
+        display: block;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+}
+
 @media  (max-width: 800px){
     #whyUs{
         
