@@ -149,7 +149,10 @@ li{
 }
 
 @media (max-width: 499px){
-    
+    .disappearing{
+        display: none;
+    }
+     
     .mobileFeature{
         display: block;
         
