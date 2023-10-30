@@ -12,16 +12,28 @@
 * {
     font-family: 'Shadows Into Light', cursive;
 }
+
 a, a:link{
     color: var(--grey);
     text-decoration: none;
 }
+a:visited {
+    color: var(--grey);
+    text-decoration: none;
+}
+
 a:hover {
     color: var(--red);
     text-size-adjust: 20px;
-    text-decoration:underline;
+    text-decoration: underline;
+    
 }
-
+a:focus {
+    color: var(--red);
+}
+a:active {
+    color: var(--red);
+}
 
 h1, h2, h3, h4, h5, h6{
     color: var(--black);
@@ -34,10 +46,11 @@ h1{
 }
 #copyright{
     font-size: 10px;
+
 }
 header,footer{
     background-color: var(--purple);
-    color: var(--white);
+    color: var(--primary-color);
 }
 header{
     width: 100%;
@@ -152,7 +165,7 @@ li{
     .disappearing{
         display: none;
     }
-     
+
     .mobileFeature{
         display: block;
         
