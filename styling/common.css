@@ -134,19 +134,24 @@ li{
 
 @media screen and (min-width: 900px){
     .disappearing{
-        display: none;
+        display: block;
     }
     
 }
 
 @media screen and (min-width: 500px) and (max-width: 900px){
     .desktopFeature{
+        display: block;
+    }
+    .mobileFeature{
         display: none;
     }
-    
 }
 
 @media screen and (max-width: 499px){
+    .desktopFeature{
+        display: none;
+    }
     .mobileFeature{
         display: block;
         flex-direction: column;
