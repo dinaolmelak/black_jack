@@ -1,0 +1,32 @@
+
+/* CSS Tooltip for card values */
+/* .card[data-blackjack-value]:hover::after { */
+ol>li:hover::after {    
+    content: attr(data-blackjack-value);
+    position: absolute;
+
+    background-color: #333;
+    color: #fff;
+    padding: 5px 10px;
+    border-radius: 5px;
+}
+
+section>ol>li:hover::after {    
+    content: attr(data-user-hints);
+    position: absolute;
+
+    background-color: #333;
+    color: #fff;
+    padding: 5px 10px;
+    border-radius: 5px;
+}
+
+button:hover::after {    
+    content: attr(data-user-hints);
+    position: absolute;
+
+    background-color: #333;
+    color: #fff;
+    padding: 5px 10px;
+    border-radius: 5px;
+}

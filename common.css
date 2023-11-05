@@ -9,7 +9,20 @@
     --blue: #0000ff;
     --purple: mediumorchid;
 }
-h1,h2 {
+h1 {
+    font-family: 'Limelight', cursive;
+    font-size: 40px;
+    margin: 20px
+}
+h2 {
+    font-family: 'Shadows Into Light', cursive;
+    font-size: 30px;
+}
+h3 {
+    font-family: 'Shadows Into Light', cursive;
+    font-size: 25px;
+}
+h4 {
     font-family: 'Shadows Into Light', cursive;
     font-size: 25px;
 }
@@ -90,7 +103,7 @@ main{
 body{
     background-color: #fcb4b4;
     margin: 0;
-    padding-top: 20px;
+    padding-top: 25px;
     
 }
 button{
@@ -143,51 +156,6 @@ li{
 #callToAction button{
     color: rgb(0, 0, 0);
     background-color: aqua;
-}
-
-@media  (min-width: 800px){
-    .disappearing{
-        display: block;
-    }
-    .mobileFeature{
-        display: none;
-    }
-}
-
-@media (min-width: 500px) and (max-width: 800px){
-    
-    .mobileFeature{
-        display: block;
-    }
-}
-
-@media (max-width: 499px){
-    .disappearing{
-        display: none;
-    }
-
-    .mobileFeature{
-        display: block;
-        
-    }
-}
-
-@media  (max-width: 800px){
-    #whyUs{
-        
-        width: 400px;
-        height: 30vh;
-    }
-    
-    #callToAction{
-        width: 400px;
-        height: 30vh;
-    }
-    
-    #callToAction button{
-        color: rgb(0, 0, 0);
-        background-color: aqua;
-    }
 }
 
 
