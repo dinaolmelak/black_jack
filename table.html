@@ -9,6 +9,8 @@
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Limelight&family=Shadows+Into+Light&display=swap" rel="stylesheet">
+        <!-- Material styles -->
+        <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material">
         <!-- css here -->
         <link href="reset.css" rel="stylesheet" type="text/css"/> 
         <link href="common.css" rel="stylesheet" type="text/css"/>
@@ -31,24 +33,23 @@
         <main>
             <h1>Table</h1>
         
-                <section>
+                <section id="dealersCards" class="mdc-layout-grid__cell--span-2 mdc-card">
                     <h2>Dealer's cards</h2>
                     <ol>
                         <li class="card" data-blackjack-value="10">Queen of hearts</li>
-                        
-                        <!-- <li>Dealer's score: </li> -->
                     </ol>
+                    <h3>Face Down</h3>
                 </section>
         
-                <section>
+                <section id="playersCards" class="mdc-layout-grid__cell--span-2 mdc-card">
                     <h2>Player's cards</h2>
                     <ol>
                         <li class="card" data-blackjack-value="2">King of spades</li>
-                        <!-- <li>Player's score: </li> -->
                     </ol>
                 </section>
 
-                <section><H3>Here are your Options:</H3>
+                <section>
+                    <H3>Here are your Options:</H3>
                     <ol>
                         <li data-user-hints="Hit means to draw another card. If the player's total exceeds 21 after hitting, the player is said to (bust) and loses the bet. In shoe games, the player signals a hit by pointing to his cards or scratching or waving toward himself. In facedown games, the player signals a hit by scratching the table with the cards. Verbal calls to hit are not accepted -- signals are used for the benefit of the security cameras above the table, so a taped record is on hand to settle any potential disputes.">Hit</li>
                         <li data-user-hints="Stand means to stop the game. The player signals a stand by holding a flattened palm over his cards in a faceup game or by sliding his cards under his bet in a facedown game. In a facedown game, at this point you also need to turn your original two cards faceup.">Stand</li>
@@ -59,23 +60,18 @@
                             <dd>If the first two cards of a hand have the same value, the player can split them into two hands, by moving a second bet equal to the first into an area outside the betting box of the original bet. The dealer separates the two cards and draws an additional card on each, placing one bet with each hand. The player then plays out the two separate hands in turn; except for a few restrictions, the hands are treated as independent new hands, with the player winning or losing their wager separately for each hand. Occasionally, in the case of ten-valued cards, some casinos allow splitting only when the cards have the identical ranks; for instance, a hand of 10-10 may be split, but not one of 10-king. However, usually all 10-value cards are treated the same. Doubling and further splitting of post-split hands may be restricted, and an ace and ten value card after a split are counted as a non-blackjack 21.</dd> -->
                     </ol>
                 </section>
-                <section>
-                    <h2>Player</h2>
-                    <p>Player's cards: </p>
-                    <div class="card" data-blackjack-value="5">Spades</div>
-                    <p>Player's score: </p>
-                </section>
-                <section>
+               
+                <section id="playersActions" class="mdc-layout-grid__cell--span-4 mdc-card">
                     <h3>Player's Actions</h3>
                     <!-- <dl>
                         <dd>Hit means to draw another card. If the player's total exceeds 21 after hitting, the player is said to "bust" and loses the bet. In shoe games, the player signals a hit by pointing to his cards or scratching or waving toward himself. In facedown games, the player signals a hit by scratching the table with the cards. Verbal calls to hit are not accepted -- signals are used for the benefit of the security cameras above the table, so a taped record is on hand to settle any potential disputes.</dd>
                         <dd>Stand means to stop the game. The player signals a stand by holding a flattened palm over his cards in a faceup game or by sliding his cards under his bet in a facedown game. In a facedown game, at this point you also need to turn your original two cards faceup.</dd>
                         <dd>If the first two cards of a hand have the same value, the player can split them into two hands, by moving a second bet equal to the first into an area outside the betting box of the original bet. The dealer separates the two cards and draws an additional card on each, placing one bet with each hand. The player then plays out the two separate hands in turn; except for a few restrictions, the hands are treated as independent new hands, with the player winning or losing their wager separately for each hand. Occasionally, in the case of ten-valued cards, some casinos allow splitting only when the cards have the identical ranks; for instance, a hand of 10-10 may be split, but not one of 10-king. However, usually all 10-value cards are treated the same. Doubling and further splitting of post-split hands may be restricted, and an ace and ten value card after a split are counted as a non-blackjack 21.</dd>
                     </dl> -->
-                    <button data-user-hints="Hit means to draw another card." >Hit</button>
-                    <button data-user-hints="Stand means to stop the game." >Stand</button>
-                    <button data-user-hints="If the first two cards of a hand have the same value, the player can split them into two hands" >Split</button>
-                    <button data-user-hints="Insurance" >Insurance</button>
+                    <button class="mdc-button" data-user-hints="Hit means to draw another card." >Hit</button>
+                    <button class="mdc-button" data-user-hints="Stand means to stop the game." >Stand</button>
+                    <button class="mdc-button" data-user-hints="If the first two cards of a hand have the same value, the player can split them into two hands" >Split</button>
+                    <button class="mdc-button" data-user-hints="Insurance" >Insure</button>
                     <!-- <button class="favorite styled" type="button">Stand
                         <h4></h4>
                         
