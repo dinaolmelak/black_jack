@@ -6,14 +6,12 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <!-- css here -->
         <link href="reset.css" rel="stylesheet" type="text/css"/>   
-        <link rel="stylesheet" href="material-components-web.min.css">
-        <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material">
+        <link href="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.css" rel="stylesheet" />
+        <script src="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.js"></script>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons"/>
         <link href="shell.css" rel="stylesheet" type="text/css"/>
         <link href="common.css" rel="stylesheet" type="text/css"/>
-        <!-- fonts here -->
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Limelight&family=Shadows+Into+Light&display=swap" rel="stylesheet">
+
         
         <title>Shell</title>
         
@@ -30,6 +28,13 @@
                     <li><a href="./table.html">Table</a></li>
                 </ul>
             </nav>
+            <section
+            class="mdc-top-app-bar__section mdc-top-app-bar__section--align-end"
+            role="toolbar"
+            >
+            <span id="loginIcon" class="material-icons"> login </span>
+            <span id="menu" class="material-icons"> menu </span>
+            </section>
         </header>
         <main>
             
@@ -41,7 +46,6 @@
             </span>
         </footer>
 
-        <script src="material-components-web.min.js"></script>
         <script src="shell.js"></script>
     </body>
 </html>

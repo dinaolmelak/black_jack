@@ -61,20 +61,25 @@ header,footer{
     color: var(--primary-color);
 }
 header{
-    width: 100%;
-    height: 10vh;
-
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
     position: fixed;
     top: 0px;
+    width: 100%; 
+    height: 80px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 }
-/* 0-0-3 */
-header nav ul{
+
+nav ul{
     display: flex;
     justify-content:center;
     align-items:flex-start;
+}
+
+nav li{
+    margin: 0 10px;
+    border-right: 1px solid var(--primary-color);
 }
 footer{
     width: 100%;
@@ -102,10 +107,7 @@ body{
 button{
     background-color: blue;
 }
-li{
-    display: inline;
-    list-style-type: circle;
-}
+
 .styled {
     border: 0;
     line-height: 2.5;
@@ -151,4 +153,13 @@ li{
     background-color: aqua;
 }
 
+@media (max-width: 500px){
+    li{
+        display: inline;
+        margin: 20 px;
+    }
 
+    .mobileFeature{
+        display: flex;
+    }
+}

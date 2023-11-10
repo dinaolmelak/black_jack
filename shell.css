@@ -1,0 +1,16 @@
+@media (max-width: 600px) {
+    #menu {
+      display: initial;
+    }
+    #navLinks,
+    #loginIcon {
+      display: none;
+    }
+    footer {
+      position: static;
+    }
+    .footer--fixed-adjust {
+      padding-bottom: 0px;
+      min-height: calc(100vh - 56px);
+    }
+  }

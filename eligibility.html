@@ -6,81 +6,133 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <!-- css here -->
         <link href="reset.css" rel="stylesheet" type="text/css"/>   
-        <link rel="stylesheet" href="material-components-web.min.css">
-        <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material">
+        <link href="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.css" rel="stylesheet" />
         <link href="common.css" rel="stylesheet" type="text/css"/>
+        <link rel="stylesheet" href="./eligibility.css" />
         <!-- fonts here -->
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Limelight&family=Shadows+Into+Light&display=swap" rel="stylesheet">
-        
         <title>Eligibility</title>
-        
+        <script src="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.js"></script>
     </head>
     
     <body>
         <header>
             <h1>Blackjack</h1>
-            <h2>Dinaol Tadesse 2239944</h2>
-            <nav>
+            <!-- <h2>Dinaol Tadesse 2239944</h2> -->
+            <nav >
                 <ul class="disappearing">
                     <li><a href="./index.html">Home</a></li>
                     <li><a href="./rules.html">Rules</a></li>
                     <li><a href="./table.html">Table</a></li>
                 </ul>
             </nav>
+            <section
+            class="mdc-top-app-bar__section mdc-top-app-bar__section--align-end"
+            role="toolbar"
+            >
+                <span id="loginIcon" class="material-icons"> login </span>
+                <span id="menu" class="material-icons"> menu </span>
+            </section>
         </header>
-        <main>
-            
-            <!-- <label class="mdc-floating-label">Email:</label>
-                <input type="email" placeholder="Email" required> -->
-                <section>
+        <main class="mdc-top-app-bar--fixed-adjust footer--fixed-adjust">
+            <div class="main-container">
+                <div id="eligibility-form" class="mdc-card fullish-height flex-center flex-column space-evenly">
+                    <!-- Full Name -->
+                    <label class="mdc-text-field mdc-text-field--filled">
+                        <span class="mdc-text-field__ripple"></span>
+                        <span class="mdc-floating-label" id="full-name">Full Name:</span>
+                        <input class="mdc-text-field__input" type="text">
+                    </label>
+                    <!-- Age -->
+                    <label class="mdc-text-field mdc-text-field--filled">
+                        <span class="mdc-text-field__ripple"></span>
+                        <span class="mdc-floating-label" id="user-age">Age:</span>
+                        <input  class="mdc-text-field__input" type="number" aria-labelledby="user-age">
+                    </label>
+                    <!-- Birth Date -->
+                    <label class="mdc-text-field mdc-text-field--filled">
+                        <span class="mdc-text-field__ripple"></span>
+                        <span class="mdc-floating-label" id="birth-date">Birth Date:</span>
+                        <input class="mdc-text-field__input" type="date" required>
+                    </label>
 
-                    <div>
-                        <!-- Age -->
-                        <label class="mdc-floating-label">Age:</label>
-                        <input type="number" placeholder="Age" required>
-                    </div>
-                    <div>
-                        <!-- Birth Date -->
-                        <label class="mdc-floating-label">Birth Date:</label>
-                        <input type="date" placeholder="Birth Date" required>
-                    </div>
-                    <div>
-                        <!-- Full Name -->
-                        <label class="mdc-floating-label">Full Name:</label>
-                        <input type="text" placeholder="Full Name" required>
-                        
-                    </div>
-                    <div>
-                        <!-- Username -->
-                        <label class="mdc-floating-label">Username:</label>
-                        <input type="text" placeholder="Username" required>
-                    </div>
-                    <div>
-                        <!-- Password -->
-                        <label class="mdc-floating-label">Enter Password:</label>
-                        <input type="password" placeholder="Password" required>
-                    </div>
-                    <div>
-                        <!-- Confirm Password -->
-                        <label class="mdc-floating-label">Confirm Password:</label>
-                        <input type="password" placeholder="Confirm Password" required>
-                    </div>
-                    <div>
-                        <!-- Conditions -->
-                        <input type="checkbox" required>
+
+                    <!-- Username -->
+                    <label class="mdc-text-field mdc-text-field--filled">
+                        <span class="mdc-text-field__ripple"></span>
+                        <span class="mdc-floating-label" id="Username">Username:</span>
+                        <input class="mdc-text-field__input" type="text" required>
+                    </label>
+                    
+                    <!-- Password -->
+                    <label class="mdc-text-field mdc-text-field--filled">
+                        <span class="mdc-text-field__ripple"></span>
+                        <span class="mdc-floating-label" id="password">Password:</span>
+                        <input class="mdc-text-field__input" type="password" required>
+                    </label>
+
+                    <!-- Confirm Password -->
+                    <label class="mdc-text-field mdc-text-field--filled">
+                        <span class="mdc-text-field__ripple"></span>
+                        <span class="mdc-floating-label" id="confirm-password">Confirm Password:</span>
+                        <input class="mdc-text-field__input" type="password" required>
+                    </label>
+                    
+                    <!-- Conditions -->
+                    <div class="mdc-form-field">
+                        <div class="mdc-checkbox">
+                            <input type="checkbox" class="mdc-checkbox__native-control" id="legal-checkbox" required>
+                            <div class="mdc-checkbox__background">
+                                <svg class="mdc-checkbox__checkmark" viewBox="0 0 24 24">
+                                  <path
+                                    class="mdc-checkbox__checkmark-path"
+                                    fill="none"
+                                    d="M1.73,12.91 8.1,19.28 22.79,4.59"
+                                  />
+                                </svg>
+                                <div class="mdc-checkbox__mixedmark"></div>
+                              </div>
+                              <div class="mdc-checkbox__ripple"></div>
+                        </div>
                         <label for="legal-checkbox"> Please consent to the following Terms and Conditions for legal purposes.</label>
-                        </br>
-                        <input type="checkbox" required>
-                        <label for="terms-checkbox"> I consent to Itachi Uchiha's terms of service</label>
+                       
                     </div>
-                    <button class="mdc-button mdc-button--raised" type="submit" >sign up</button>
+
+                    <div class="mdc-form-field">
+                        <div class="mdc-checkbox">
+                            <input type="checkbox" class="mdc-checkbox__native-control" id="terms-checkbox" required>
+                            <div class="mdc-checkbox__background">
+                                <svg class="mdc-checkbox__checkmark" viewBox="0 0 24 24">
+                                  <path
+                                    class="mdc-checkbox__checkmark-path"
+                                    fill="none"
+                                    d="M1.73,12.91 8.1,19.28 22.79,4.59"
+                                  />
+                                </svg>
+                                <div class="mdc-checkbox__mixedmark"></div>
+                              </div>
+                              <div class="mdc-checkbox__ripple"></div>
+                        </div>
+                        <label for="terms-checkbox"> 
+                            I consent to Itachi Uchiha's terms of service
+                        </label>
+                    </div>
+
+                    
+                    <button class="mdc-button mdc-button--raised">
+                        <span class="mdc-button__label">sign up</span>
+                    </button>
+                    <!-- <p>Already have an account? <a href="./login.html">Login</a></p> -->
                     <a href="https://mnapg.org/understanding-problem-gambling/">
-                        <button class="mdc-button mdc-button--raised" type="reset" >Info on problem gambling</button>
+                        <button class="mdc-button">
+                            <span class="mdc-button__ripple"></span>
+                            <span class="mdc-button__label" >Info on problem gambling</span>
+                        </button>
                     </a>
-                </section>
-            
+                </div>
+            </div>
         </main>
         <footer>
             <p>Classy Development</p>
@@ -88,5 +140,7 @@
                 &copy; 2023 Black Jack Itachi
             </span>
         </footer>
+        <script src="./shell.js"></script>
+        <script src="./eligibility.js"></script>
     </body>
 </html>
