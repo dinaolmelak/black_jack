@@ -38,24 +38,24 @@
         </header>
         <main class="mdc-top-app-bar--fixed-adjust footer--fixed-adjust">
             <div class="main-container">
-                <div id="eligibility-form" class="mdc-card fullish-height flex-center flex-column space-evenly">
+                <form id="eligibility-form" class="mdc-card fullish-height flex-center flex-column space-evenly">
                     <!-- Full Name -->
                     <label class="mdc-text-field mdc-text-field--filled">
                         <span class="mdc-text-field__ripple"></span>
                         <span class="mdc-floating-label" id="full-name">Full Name:</span>
-                        <input class="mdc-text-field__input" type="text">
+                        <input id="full_name_input" class="mdc-text-field__input" type="text">
                     </label>
                     <!-- Age -->
                     <label class="mdc-text-field mdc-text-field--filled">
                         <span class="mdc-text-field__ripple"></span>
                         <span class="mdc-floating-label" id="user-age">Age:</span>
-                        <input  class="mdc-text-field__input" type="number" aria-labelledby="user-age">
+                        <input id="age_input" class="mdc-text-field__input" type="number" aria-labelledby="user-age">
                     </label>
                     <!-- Birth Date -->
                     <label class="mdc-text-field mdc-text-field--filled">
                         <span class="mdc-text-field__ripple"></span>
                         <span class="mdc-floating-label" id="birth-date">Birth Date:</span>
-                        <input class="mdc-text-field__input" type="date" required>
+                        <input id="birth_date_input" class="mdc-text-field__input" type="date" required>
                     </label>
 
 
@@ -63,27 +63,27 @@
                     <label class="mdc-text-field mdc-text-field--filled">
                         <span class="mdc-text-field__ripple"></span>
                         <span class="mdc-floating-label" id="Username">Username:</span>
-                        <input class="mdc-text-field__input" type="text" required>
+                        <input id="username_input" class="mdc-text-field__input" type="text" required>
                     </label>
                     
                     <!-- Password -->
                     <label class="mdc-text-field mdc-text-field--filled">
                         <span class="mdc-text-field__ripple"></span>
-                        <span class="mdc-floating-label" id="password">Password:</span>
-                        <input class="mdc-text-field__input" type="password" required>
+                        <span class="mdc-floating-label" id="password">Enter Password:</span>
+                        <input id="password_input" class="mdc-text-field__input" type="password" required>
                     </label>
 
                     <!-- Confirm Password -->
                     <label class="mdc-text-field mdc-text-field--filled">
                         <span class="mdc-text-field__ripple"></span>
                         <span class="mdc-floating-label" id="confirm-password">Confirm Password:</span>
-                        <input class="mdc-text-field__input" type="password" required>
+                        <input id="confirm_password_input" class="mdc-text-field__input" type="password" required>
                     </label>
                     
                     <!-- Conditions -->
                     <div class="mdc-form-field">
                         <div class="mdc-checkbox">
-                            <input type="checkbox" class="mdc-checkbox__native-control" id="legal-checkbox" required>
+                            <input type="checkbox" class="mdc-checkbox__native-control" id="legal_checkbox">
                             <div class="mdc-checkbox__background">
                                 <svg class="mdc-checkbox__checkmark" viewBox="0 0 24 24">
                                   <path
@@ -96,13 +96,13 @@
                               </div>
                               <div class="mdc-checkbox__ripple"></div>
                         </div>
-                        <label for="legal-checkbox"> Please consent to the following Terms and Conditions for legal purposes.</label>
+                        <label for="legal-checkbox" id="legal_label"> Please consent to the following Terms and Conditions for legal purposes.</label>
                        
                     </div>
 
                     <div class="mdc-form-field">
                         <div class="mdc-checkbox">
-                            <input type="checkbox" class="mdc-checkbox__native-control" id="terms-checkbox" required>
+                            <input type="checkbox" class="mdc-checkbox__native-control" id="terms_checkbox">
                             <div class="mdc-checkbox__background">
                                 <svg class="mdc-checkbox__checkmark" viewBox="0 0 24 24">
                                   <path
@@ -115,23 +115,24 @@
                               </div>
                               <div class="mdc-checkbox__ripple"></div>
                         </div>
-                        <label for="terms-checkbox"> 
+                        <label for="terms-checkbox" id="term_label"> 
                             I consent to Itachi Uchiha's terms of service
                         </label>
                     </div>
 
-                    
-                    <button class="mdc-button mdc-button--raised">
-                        <span class="mdc-button__label">sign up</span>
+                    <!-- Sign up -->
+                    <button id="submit_button" class="mdc-button mdc-button--raised">
+                        <span class="mdc-button__label">Sign up</span>
                     </button>
                     <!-- <p>Already have an account? <a href="./login.html">Login</a></p> -->
+                    <!-- Info on problem gambling -->
                     <a href="https://mnapg.org/understanding-problem-gambling/">
                         <button class="mdc-button">
                             <span class="mdc-button__ripple"></span>
                             <span class="mdc-button__label" >Info on problem gambling</span>
                         </button>
                     </a>
-                </div>
+                </form>
             </div>
         </main>
         <footer>
