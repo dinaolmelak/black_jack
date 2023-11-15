@@ -9,21 +9,23 @@ const checkboxes = [].map.call(document.querySelectorAll('.mdc-checkbox'), funct
     return new MDCCheckbox(el);
 }
 );
-const legal_checkbox = document.getElementById('legal_checkbox');
-const terms_checkbox = document.getElementById('terms_checkbox');
-
+const eligibility_form = document.forms[0];
+const legal_checkbox = eligibility_form[6];
+const terms_checkbox = eligibility_form[7];
+// Logic for checkmarking the legal  checkboxes when the user clicks on the label
 const legal_checkbox_label = document.getElementById('legal_label');
 legal_checkbox_label.addEventListener('click', function() {
-    if (legal_checkbox.checked == true) {
+    if (legal_checkbox.checked ) {
         legal_checkbox.checked = false;
     }else{
         legal_checkbox.checked = true;
     }
 }
 );
+// Logic for checkmarking the terms checkboxes when the user clicks on the label
 const terms_checkbox_label = document.getElementById('term_label');
 terms_checkbox_label.addEventListener('click', function() {
-    if (terms_checkbox.checked == true) {
+    if (terms_checkbox.checked ) {
         terms_checkbox.checked = false;
     }else{
         terms_checkbox.checked = true;
@@ -31,64 +33,48 @@ terms_checkbox_label.addEventListener('click', function() {
 }
 );
 
-const full_name = document.getElementById('full_name_input');
-const age = document.getElementById('age_input');
-const birth_date = document.getElementById('birth_date_input');
-const username = document.getElementById('username_input');
-const password = document.getElementById('password_input');
-const confirm_password = document.getElementById('confirm_password_input');
-
-
 function check_eligibility() {
-    let passwords_match = password.value === confirm_password.value;
-    let right_age = age.value >= 13;
-    let fields_filled = full_name.value != '' && age.value != '' && birth_date.value != '' && username.value != '' && password.value != '' && confirm_password.value != '';
-    if (passwords_match == true && right_age == true && fields_filled == true) {
-        return true;
-        // console.log('The user is eligible');
-    }else{
-        // console.log('The user is ineligible');
-        return false;
-    }
+    let passwords_match = eligibility_form[4].value === eligibility_form[5].value;
+    let right_age = eligibility_form[1].value >= 13;
+    let fields_filled = eligibility_form[0].value != '' && eligibility_form[1].value != '' && eligibility_form[2].value != '' && eligibility_form[3].value != '' && eligibility_form[4].value != '' && eligibility_form[5].value != '';
+    return (passwords_match && right_age  && fields_filled );
 }
 
-const submit_button = document.getElementById('submit_button');
+const submit_button = document.forms[0][8];
 submit_button.addEventListener('click', function() {
-    // let input_value = `Full Name: ${full_name.value}`;
-    console.log(`Full Name: ${full_name.value}`);
-    // let input_value = `Age: ${age.value}`;
-    console.log(`Age: ${age.value}`);
-    // let input_value = `Birth Date: ${birth_date.value}`;
-    console.log(`Birth Date: ${birth_date.value}`);
-    // let input_value = `Username: ${username.value}`;
-    console.log(`Username: ${username.value}`);
-    // let input_value = `Password: ${password.value}`;
-    console.log(`Enter Password: ${password.value}`);
-    // let input_value = `Confirm Password: ${confirm_password.value}`;
-    console.log(`Confirm Password: ${confirm_password.value}`);
+    event.preventDefault();
+
+    console.log(`Full Name: ${eligibility_form[0].value}`);
+
+    console.log(`Age: ${eligibility_form[1].value}`);
+
+    console.log(`Birth Date: ${eligibility_form[2].value}`);
+
+    console.log(`Username: ${eligibility_form[3].value}`);
+
+    console.log(`Enter Password: ${eligibility_form[4].value}`);
+
+    console.log(`Confirm Password: ${eligibility_form[5].value}`);
     
-    if (legal_checkbox.checked == true) {
+    if (legal_checkbox.checked) {
         console.log('The user has checked the legal checkbox');
     }else{
         console.log('The user has not checked the legal checkbox');
     }
-    // let checkbox_value = terms_checkbox.checked;
-    if (terms_checkbox.checked == true) {
+
+    if (terms_checkbox.checked ) {
         console.log('The user has checked the terms checkbox');
     }else{
         console.log('The user has not checked the terms checkbox');
     }
 
     let eligibility = check_eligibility();
-    if (eligibility == true) {
+    if (eligibility ) {
         console.log('The user is eligible');
     } else {
         console.log('The user is ineligible');
     }
     
-
-
-
 
 }
 );
