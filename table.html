@@ -40,7 +40,7 @@
                 <!-- Dealers Cards -->
                     <section id="dealersCards" class="mdc-layout-grid__cell--span-6 mdc-layout-grid__cell--span-8-tablet mdc-card give-height flex-center space-evenly">
                         <h2>Dealer's cards</h2>
-                        <ol class="flex-center space-evenly take-width">
+                        <ol id="dealers-cards-list" class="mdc-list flex-center space-evenly take-width">
                             <li class="card" data-blackjack-value="?">Face Down</li>
                             <li class="card" data-blackjack-value="10">King of spades</li>
                         </ol>
@@ -50,33 +50,36 @@
                 <!-- Players Cards -->
                     <section id="playersCards" class="mdc-layout-grid__cell--span-2 mdc-card">
                         <h2>Player's cards</h2>
-                        <ol>
+                        <ol id="players-cards-list" class="mdc-list">
                             <li class="card" data-blackjack-value="2">King of spades</li>
 
                         </ol>
                     </section>
-                    
-                    <!-- Players Actions -->
-                        <section id="playersActions" class="mdc-layout-grid__cell--span-4 mdc-card">
-                            <h3>Player's Actions</h3>
-                            
-                            <button class="mdc-button" data-user-hints="Hit means to draw another card." id="hit-button">Hit</button>
-                            <button class="mdc-button" data-user-hints="Stand means to stop the game." >Stand</button>
-                            <button class="mdc-button" data-user-hints="If the first two cards of a hand have the same value, the player can split them into two hands" >Split</button>
-                            <button class="mdc-button" data-user-hints="Insurance" >Insure</button>
-                           
-                        </section>
-
-                    <!-- Players Options Information -->
-                    <section class="mdc-layout-grid__cell--span-2 mdc-card">
-                        <H3>Here are your Options:</H3>
-                        <ol>
-                            <li data-user-hints="Hit means to draw another card. If the player's total exceeds 21 after hitting, the player is said to (bust) and loses the bet. In shoe games, the player signals a hit by pointing to his cards or scratching or waving toward himself. In facedown games, the player signals a hit by scratching the table with the cards. Verbal calls to hit are not accepted -- signals are used for the benefit of the security cameras above the table, so a taped record is on hand to settle any potential disputes.">Hit</li>
-                            <li data-user-hints="Stand means to stop the game. The player signals a stand by holding a flattened palm over his cards in a faceup game or by sliding his cards under his bet in a facedown game. In a facedown game, at this point you also need to turn your original two cards faceup.">Stand</li>
-                            <li data-user-hints="If the first two cards of a hand have the same value, the player can split them into two hands, by moving a second bet equal to the first into an area outside the betting box of the original bet. The dealer separates the two cards and draws an additional card on each, placing one bet with each hand. The player then plays out the two separate hands in turn; except for a few restrictions, the hands are treated as independent new hands, with the player winning or losing their wager separately for each hand. Occasionally, in the case of ten-valued cards, some casinos allow splitting only when the cards have the identical ranks; for instance, a hand of 10-10 may be split, but not one of 10-king. However, usually all 10-value cards are treated the same. Doubling and further splitting of post-split hands may be restricted, and an ace and ten value card after a split are counted as a non-blackjack 21.">Split</li>    
-                            <li data-user-hints="Insurance">Insure</li>
-                            
+                <!-- Dealt Cards -->
+                    <section id="dealt-cards" class="mdc-layout-grid__cell--span-2 mdc-card">
+                        <h2>Dealt Cards</h2>
+                        <ol id="dealt-cards-list" class="mdc-list">
                         </ol>
+                    </section>
+                    <!-- Players Actions -->
+                    <section id="playersActions"  class="mdc-layout-grid__cell--span-2.5 mdc-card flex-center flex-column">
+                        <h3>Player's Actions</h3>
+                        <div class="flex-center space-evenly ampler-padding take-width">
+
+                            <button class="mdc-button mdc-button--raised" data-user-hints="Hit means to draw another card." id="hit-button">
+                                <span class="mdc-button__label">Hit</span>
+                            </button>
+                            <button class="mdc-button mdc-button--raised" data-user-hints="Stand means to stop the game." >
+                                <span class="mdc-button__label">Stand</span> 
+                            </button>
+                            <button class="mdc-button mdc-button--raised" data-user-hints="If the first two cards of a hand have the same value, the player can split them into two hands" >
+                                <span class="mdc-button__label">Split</span> 
+                            </button>
+                            <button class="mdc-button mdc-button--raised" data-user-hints="Insurance" >
+                                <span class="mdc-button__label">Insure</span>
+                            </button>
+                        </div>  
+                        
                     </section>
 
             </div>

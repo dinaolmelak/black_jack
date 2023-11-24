@@ -34,6 +34,8 @@ function rankToWord(rank){
     }
     else if (rank === "King"){
         return "King";
+    } else if (rank === "Face Down"){
+        return "Face Down";
     }
 
     const mapRanksToWords = { 2: "Two", 3: "Three", 4: "Four", 5: "Five", 6: "Six", 7: "Seven", 8: "Eight", 9: "Nine", 10: "Ten", };
@@ -55,17 +57,25 @@ function rankToValue(rank){
         return String(rank);
     }
 }
+// <li class="card" data-blackjack-value="2">King of spades</li>
 
 function dealToDisplay(card){
-    let card_value_str = `Your card is ${card.rank} of ${card.suit}.`
-    console.log(card_value_str,card);
-    // console.log(randomCard);
+    // let card_value_str = `Your card is ${card.rank} of ${card.suit}.`
+    // console.log(card_value_str,card);
+    const new_card = document.createElement('li');
+    new_card.classList.add('mdc-list-item', 'space-between', 'card');
+    new_card.setAttribute('data-blackjack-value', rankToValue(card.rank));
+    new_card.innerText = `${rankToWord(card.rank)} of ${suitToWord(card.suit)}`;
+    new_card.setAttribute('role', 'option');
+    new_card.setAttribute('tabindex', '0');
+    
+    document.querySelector('ol#players-cards-list').appendChild(new_card);
+
 }
 
 function dealRandomCard(){
     dealToDisplay(getRandomCard());
 }
-
 
 const hit_button = document.getElementById("hit-button");
 hit_button.addEventListener("click", function() {
@@ -73,5 +83,6 @@ hit_button.addEventListener("click", function() {
     // console.log(random_card)
     let card_value_str = `did you bust? Your card is ${randomCard.rank} of ${randomCard.suit}.`
     console.log(card_value_str,randomCard);
-    // console.log(randomCard);
+    dealToDisplay(randomCard);
+    
 });
