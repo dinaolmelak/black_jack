@@ -60,8 +60,6 @@ function rankToValue(rank){
 // <li class="card" data-blackjack-value="2">King of spades</li>
 
 function dealToDisplay(card){
-    // let card_value_str = `Your card is ${card.rank} of ${card.suit}.`
-    // console.log(card_value_str,card);
     const new_card = document.createElement('li');
     new_card.classList.add('mdc-list-item', 'space-between', 'card');
     new_card.setAttribute('data-blackjack-value', rankToValue(card.rank));
@@ -72,6 +70,13 @@ function dealToDisplay(card){
     document.querySelector('ol#players-cards-list').appendChild(new_card);
 
 }
+const playersActionSection = document.querySelector('#playersActions');
+const bettingSection = document.querySelector('#betting');
+const bettingForm = document.forms[0];
+const bankrollSpan = document.querySelector('#player-bankroll');
+const wagerInput = bettingForm[0];
+const wagerButton = bettingForm[1];
+wagerButton.addEventListener('click', makeWager);
 
 function dealRandomCard(){
     dealToDisplay(getRandomCard());
@@ -86,3 +91,30 @@ hit_button.addEventListener("click", function() {
     dealToDisplay(randomCard);
     
 });
+
+let playerBankroll = 2022;
+
+function getBankroll(){
+    return playerBankroll;
+}
+
+function setBankroll(newBankroll){
+    playerBankroll = newBankroll;
+}
+function makeWager(event){
+    event.preventDefault();
+    console.log(wagerInput.value);
+    timeToPlay();
+}
+function timeToBet(){
+    playersActionSection.style.display = 'none';
+    bettingSection.style.display = 'flex';
+    bankrollSpan.innerText = `Bankroll: $${getBankroll()}`;
+}
+
+function timeToPlay(){
+    bettingSection.style.display = 'none';
+    playersActionSection.style.display = 'none';
+}
+
+timeToPlay();

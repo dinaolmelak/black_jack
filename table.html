@@ -51,18 +51,13 @@
                     <section id="playersCards" class="mdc-layout-grid__cell--span-2 mdc-card">
                         <h2>Player's cards</h2>
                         <ol id="players-cards-list" class="mdc-list">
-                            <li class="card" data-blackjack-value="2">King of spades</li>
+                            <li class="card mdc-list-item space-between" data-blackjack-value="2">King of spades</li>
 
                         </ol>
                     </section>
-                <!-- Dealt Cards -->
-                    <section id="dealt-cards" class="mdc-layout-grid__cell--span-2 mdc-card">
-                        <h2>Dealt Cards</h2>
-                        <ol id="dealt-cards-list" class="mdc-list">
-                        </ol>
-                    </section>
+                    <br>
                     <!-- Players Actions -->
-                    <section id="playersActions"  class="mdc-layout-grid__cell--span-2.5 mdc-card flex-center flex-column">
+                    <section id="playersActions" class="mdc-layout-grid__cell--span-2.5 mdc-card flex-center flex-column">
                         <h3>Player's Actions</h3>
                         <div class="flex-center space-evenly ampler-padding take-width">
 
@@ -81,7 +76,24 @@
                         </div>  
                         
                     </section>
-
+                    <!-- Betting Interface -->
+                    <section id="betting" class="mdc-layout-grid__cell--span-12 mdc-card flex-center">
+                        <form id="wager-form"
+                        class="ampler-padding flex-center space-evenly take-width"
+                        >
+                            <span id="player-bankroll">Bankroll: $2022</span>
+                            <label class="mdc-text-field mdc-text-field--filled">
+                                <span class="mdc-text-field__ripple"></span>
+                                <span class="mdc-floating-label ampler-padding" id="wager-label">Wager Amount</span>
+                                <input type="number" class="mdc-text-field__input" aria-labelledby="wager-label"/>
+                                <span class="mdc-line-ripple"></span>
+                            </label>
+                            <button class="mdc-button mdc-button--raised">
+                                <span class="mdc-button__label">Wager</span>
+                            </button>
+                    
+                        </form>
+                    </section>
             </div>
         </main> 
         <footer>
