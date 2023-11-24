@@ -92,13 +92,15 @@ hit_button.addEventListener("click", function() {
     
 });
 
-let playerBankroll = 2022;
+let playerBankroll = localStorage.getItem('bankroll') || 2022;
 
-function getBankroll(){
-    return playerBankroll;
+function getBankroll() {
+    return Number(playerBankroll);
 }
 
-function setBankroll(newBankroll){
+function setBankroll(newBankroll) {
+    // save the playerBankroll to local storage
+    localStorage.setItem('bankroll', newBankroll);
     playerBankroll = newBankroll;
 }
 function makeWager(event){
