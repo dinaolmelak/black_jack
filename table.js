@@ -114,7 +114,7 @@ function timeToBet(){
 
 function timeToPlay(){
     bettingSection.style.display = 'none';
-    playersActionSection.style.display = 'none';
+    playersActionSection.style.display = 'flex';
 }
 
 timeToPlay();
