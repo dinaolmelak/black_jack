@@ -24,9 +24,48 @@ function getRandomCard(){
     let randomIndex = Math.floor(randomValue); //  0 - 51
     return deck[randomIndex];
 }
-// module.exports = {
-//     getRandomCard
-// };
+function rankToWord(rank){
+    if (rank === "Ace"){
+        return "Ace";
+    } else if (rank === "Knave"){
+        return "Knave";
+    } else if (rank === "Queen"){
+        return "Queen";
+    }
+    else if (rank === "King"){
+        return "King";
+    }
+
+    const mapRanksToWords = { 2: "Two", 3: "Three", 4: "Four", 5: "Five", 6: "Six", 7: "Seven", 8: "Eight", 9: "Nine", 10: "Ten", };
+    return mapRanksToWords[rank];
+}
+function suitToWord(suit){
+    const mapSuitsToWords = { "♠": "Spades", "♡": "Hearts", "♢": "Diamonds", "♣": "Clubs", "": "Mystery", };
+    return mapSuitsToWords[suit];
+}
+
+function rankToValue(rank){
+    if (rank === "Ace"){
+        return "11/1";
+    } else if (rank === "Knave"){
+        return "10";
+    } else if (rank === "Face Down"){
+        return "?";
+    } else {
+        return String(rank);
+    }
+}
+
+function dealToDisplay(card){
+    let card_value_str = `Your card is ${card.rank} of ${card.suit}.`
+    console.log(card_value_str,card);
+    // console.log(randomCard);
+}
+
+function dealRandomCard(){
+    dealToDisplay(getRandomCard());
+}
+
 
 const hit_button = document.getElementById("hit-button");
 hit_button.addEventListener("click", function() {
