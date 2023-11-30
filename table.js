@@ -113,10 +113,49 @@ function timeToBet(){
     bettingSection.style.display = 'flex';
     bankrollSpan.innerText = `Bankroll: $${getBankroll()}`;
 }
+let deckId;
 
 function timeToPlay(){
     bettingSection.style.display = 'none';
     playersActionSection.style.display = 'flex';
+    drawFourCards(cards => {
+        console.log("Cards",cards);
+    }
+    );
 }
 
-timeToPlay();
+
+function getShoe(callback){
+    const url = 'https://www.deckofcardsapi.com/api/deck/new/shuffle?deck_count=6';
+    fetch(url).then((response) => {
+        return response.json();
+    }).then((newData) => {
+        console.log("getShoe data",newData);
+        callback(newData);
+    }).catch((error) => {
+        console.log("getShoe Error",error)
+    });
+
+}
+
+getShoe(data => {
+    console.log("Called",data);
+    deckId = data.deck_id;
+    console.log("deckId",deckId);
+});
+
+function drawFourCards(callback){
+    if(deckId === undefined){
+        return;
+    }
+    fetch('https://www.deckofcardsapi.com/api/deck/' + deckId + '/draw?count=4').then((response) => {
+        return response.json();
+    }).then((newData) => {
+        console.log("drawFourCards data",newData);
+        callback(newData.cards);
+    }).catch((error) => {
+        console.log("drawFourCards Error",error)
+    });
+    
+}
+
