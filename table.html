@@ -19,6 +19,7 @@
         <!-- css here -->
         <link href="reset.css" rel="stylesheet" type="text/css"/> 
         <link href="common.css" rel="stylesheet" type="text/css"/>
+        <link href="table.css" rel="stylesheet" type="text/css"/>
         <link rel="stylesheet" href="./shell.css" />
         <title>Gaming Table</title>
         
@@ -41,7 +42,9 @@
                     <section id="dealersCards" class="mdc-layout-grid__cell--span-6 mdc-layout-grid__cell--span-8-tablet mdc-card give-height flex-center space-evenly">
                         <h2>Dealer's cards</h2>
                         <ol id="dealers-cards-list" class="mdc-list flex-center space-evenly take-width">
-                            <li class="card" data-blackjack-value="?">Face Down</li>
+                            <li class="card" data-blackjack-value="?">Face Down
+                                <img src="https://previews.123rf.com/images/rlmf/rlmf1512/rlmf151200171/49319432-playing-cards-back.jpg" alt="?" class="card-image">
+                            </li>
                             <li class="card" data-blackjack-value="10">King of spades</li>
                         </ol>
                         
@@ -51,8 +54,11 @@
                     <section id="playersCards" class="mdc-layout-grid__cell--span-2 mdc-card">
                         <h2>Player's cards</h2>
                         <ol id="players-cards-list" class="mdc-list">
-                            <li class="card mdc-list-item space-between" data-blackjack-value="2">King of spades</li>
+                            <li class="card mdc-list-item space-between" data-blackjack-value="8">King of spades
+                                <img src="https://deckofcardsapi.com/static/img/8D.png" alt="King of spades" class="card-image"> </li>
 
+                            <li class="card mdc-list-item space-between" data-blackjack-value="11/1">King of spades</li>
+                            <li class="card mdc-list-item space-between" data-blackjack-value="2"> of spades</li>
                         </ol>
                     </section>
                     <br>
@@ -64,13 +70,13 @@
                             <button class="mdc-button mdc-button--raised" data-user-hints="Hit means to draw another card." id="hit-button">
                                 <span class="mdc-button__label">Hit</span>
                             </button>
-                            <button class="mdc-button mdc-button--raised" data-user-hints="Stand means to stop the game." >
+                            <button class="mdc-button mdc-button--raised" data-user-hints="Stand means to stop the game." id="stand-button">
                                 <span class="mdc-button__label">Stand</span> 
                             </button>
-                            <button class="mdc-button mdc-button--raised" data-user-hints="If the first two cards of a hand have the same value, the player can split them into two hands" >
+                            <button class="mdc-button mdc-button--raised" data-user-hints="If the first two cards of a hand have the same value, the player can split them into two hands" id="split-button">
                                 <span class="mdc-button__label">Split</span> 
                             </button>
-                            <button class="mdc-button mdc-button--raised" data-user-hints="Insurance" >
+                            <button class="mdc-button mdc-button--raised" data-user-hints="Insurance" id="Insure-button">
                                 <span class="mdc-button__label">Insure</span>
                             </button>
                         </div>  

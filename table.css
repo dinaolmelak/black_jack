@@ -1,7 +1,7 @@
 
 /* CSS Tooltip for card values */
 /* .card[data-blackjack-value]:hover::after { */
-.main-container {
+/* .main-container {
     margin: 0 auto;
     padding: 24px;
     max-width: 900px;
@@ -15,10 +15,15 @@
     color: #fff;
     padding: 5px 10px;
     border-radius: 5px;
+} */
+
+img.card-image {
+    width: 100px;
+    height: 100px;
 }
 
 
-section>ol>li:hover::after {    
+/* section>ol>li:hover::after {    
     content: attr(data-user-hints);
     position: absolute;
     display: grid;
@@ -36,4 +41,4 @@ button:hover::after {
     color: #fff;
     padding: 5px 10px;
     border-radius: 5px;
-}
+} */
