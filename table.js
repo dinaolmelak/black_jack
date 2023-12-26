@@ -1,12 +1,19 @@
+const MDCTextField = mdc.textField.MDCTextField;
+
+const textFields = [].map.call(document.querySelectorAll('.mdc-text-field'), function(el) {
+    return new MDCTextField(el);
+});
 const suits = ["♠", "♡", "♢", "♣"];
 const ranks = ["Ace", 2, 3, 4, 5, 6, 7, 8, 9, 10, "Jack","Queen", "King"];
 const deck = [];
+let deckId;
+
 function createDeck(){
-    for (let i = 0; i < suits.length; i++){
-        for (let j = 0; j < ranks.length; j++){
+    for (const suit of suits){
+        for (const rank of ranks){
             let card = {
-                suit: suits[i],
-                rank: ranks[j]
+                suit: suit,
+                rank: rank
             };
             deck.push(card);
         }
@@ -48,83 +55,181 @@ function suitToWord(suit){
     }
     return mapSuitsToWords[suit];
 }
-
 function rankToValue(rank){
     if (rank === "Ace" || rank === "ACE"){
         return "11/1";
     } else if (rank === "Jack" || rank === "JACK"){
         return "10";
-    } else if (rank === "Face Down"){
-        return "?";
+    } else if (rank === "Queen" || rank === "QUEEN"){
+        return "10";
+    } else if (rank === "King" || rank === "KING"){
+        return "10";
+    } else if (rank === "Face Down" || rank === "FACE DOWN"){
+        return "0";
     } else {
         return String(rank);
     }
 }
 // <li class="card" data-blackjack-value="2">King of spades</li>
-
-function dealToPlayerDisplay(card, faceDown = false){
-    const new_card = document.createElement('li');
-    new_card.classList.add('mdc-list-item', 'space-between', 'card');
-    if (faceDown){
-        new_card.setAttribute('data-blackjack-value', '?');
-    }else{
-        new_card.setAttribute('data-blackjack-value', rankToValue(card.rank));
-    }
-    new_card.innerText = `${rankToWord(card.rank)} of ${suitToWord(card.suit)}`;
-    new_card.setAttribute('role', 'option');
-    new_card.setAttribute('tabindex', '0');
-    
-    document.querySelector('ol#players-cards-list').appendChild(new_card);
-
-}
-function dealToDealerDisplay(card){
-    const new_card = document.createElement('li');
-    new_card.classList.add('mdc-list-item', 'space-between', 'card');
-    new_card.setAttribute('data-blackjack-value', rankToValue(card.rank));
-    new_card.innerText = `${rankToWord(card.rank)} of ${suitToWord(card.suit)}`;
-    new_card.setAttribute('role', 'option');
-    new_card.setAttribute('tabindex', '0');
-    
-    document.querySelector('ol#dealers-cards-list').appendChild(new_card);
-
-}
+// variables for the game and the DOM
+const backOfCardImageSrc =
+  "https://previews.123rf.com/images/rlmf/rlmf1512/rlmf151200171/49319432-playing-cards-back.jpg";
+const playersCardList = document.querySelector('ol#players-cards-list');
+const dealersCardList = document.querySelector('ol#dealers-cards-list');
 const playersActionSection = document.querySelector('#playersActions');
 const bettingSection = document.querySelector('#betting');
 const bettingForm = document.forms[0];
 const bankrollSpan = document.querySelector('#player-bankroll');
 const wagerInput = bettingForm[0];
 const wagerButton = bettingForm[1];
+// HIT BUTTON
+const hit_button = document.getElementById("hit-button");
+const stand_button = document.getElementById("stand-button");
+// values for blackjack game
+let playersHandValue = 0;
+let dealersHandValue = 0;
+let didPlayerStand = false;
+let playerBankroll = localStorage.getItem('bankroll') || 2022;
+// event listener for the buttons
 wagerButton.addEventListener('click', makeWager);
+stand_button.addEventListener("click", stand );
+hit_button.addEventListener("click", onHit);
+// observer for the players hand
+const playersHandObserver = new MutationObserver(() => countCardsInHand(playersCardList));
+const dealersHandObserver = new MutationObserver(() => countCardsInHand(dealersCardList,true));
+const observerConfig = { attributes: true, childList: true, characterData: true, subtree: true };
+playersHandObserver.observe(playersCardList, observerConfig);
+dealersHandObserver.observe(dealersCardList, observerConfig);
+
+function countCardsInHand(cardList, isDealer = false) {
+    const cards = cardList.querySelectorAll('li.card'); //cardList.querySelectorAll('li.card');
+    let total = 0;
+    let aceCounter = 0;
+    for (const card of cards){
+        let value = card.getAttribute('data-blackjack-value');
+        if (value === "?"){
+            continue;
+        }
+        if (value === "11/1" && isDealer === false){
+            aceCounter += 1;
+        } else if (value === "11/1" && isDealer === true){
+            total += 11;
+        } else {
+            total += Number(value);
+        }
+
+    }
+    if (aceCounter > 0){
+        if (total + 11 + (aceCounter - 1) <= 21){
+            total += 11 + (aceCounter - 1);
+        } else {
+            total += aceCounter;
+        }
+    }
+    isDealer ? dealersHandValue = total : playersHandValue = total;
+    
+
+    if (isDealer){
+        console.log("dealersHandValue",dealersHandValue);
+    }
+    if (playersHandValue > 21){
+        console.log("player busted", playersHandValue);
+        // stand();
+    } else{
+        console.log("player has", playersHandValue);
+    }
+    if (dealersHandValue > 21){
+        console.log("dealer busted", dealersHandValue);
+        // stand();
+    } else{
+        console.log("dealer has", dealersHandValue);
+    }
+}
+
+function dealCardToDisplay(card, faceDown = false, isDealer = false) {
+    const new_card = document.createElement('li');
+    new_card.classList.add('mdc-list-item', 'space-between', 'card');
+    new_card.setAttribute('card-image-url', card.image);
+    new_card.setAttribute('data-blackjack-suit', card.suit);
+    new_card.setAttribute('data-blackjack-rank', card.value);
+    if (faceDown){
+        new_card.setAttribute('data-blackjack-value', '?');
+    }else{
+        new_card.setAttribute('data-blackjack-value', rankToValue(card.value));
+    }
+    new_card.innerText = faceDown === false ? `${rankToWord(card.value)} of ${suitToWord(card.suit)}` : "Face Down";
+    new_card.setAttribute('role', 'option');
+    new_card.setAttribute('tabindex', '0');
+    // adding the image
+    const img = document.createElement('img');
+    img.src = faceDown === false ? card.image : backOfCardImageSrc;
+    img.alt = faceDown === false ? `${rankToWord(card.value)} of ${suitToWord(card.suit)}` : "Face Down";
+    img.style.width = "50px";
+    img.style.height = "75px";
+    img.classList.add('card-image');
+    new_card.appendChild(img);
+    
+    if (isDealer) {
+        dealersCardList.appendChild(new_card);
+    } else {
+        playersCardList.appendChild(new_card);
+    }
+}
 
 function dealRandomCard(){
-    dealToPlayerDisplay(getRandomCard());
+    dealCardToDisplay(getRandomCard());
 }
-function getOneCard(){
-    drawOneCard(card => {
-        console.log("Cards",card);
-        let newCard = { rank: card.value, suit: card.suit };
-        dealToPlayerDisplay(newCard);
-    });
-}
-const hit_button = document.getElementById("hit-button");
-hit_button.addEventListener("click", function() {
-    let randomCard = getRandomCard();
-    // console.log(random_card)
-    let card_value_str = `did you bust? Your card is ${randomCard.rank} of ${randomCard.suit}.`
-    console.log(card_value_str,randomCard);
-    //dealToPlayerDisplay(randomCard);
-    getOneCard();
-});
 
-const stand_button = document.getElementById("stand-button");
-stand_button.addEventListener("click", function() {
+function dealOneCard(toPlayer = true){
+    if(toPlayer){
+        drawOneCard(card => {
+            console.log("One Card:",card[0]);
+            // addCardToPlayersHand(card[0]);
+            dealCardToDisplay(card[0], false, false);
+        });
+    }
+    else{
+        drawOneCard(card => {
+            console.log("One Card:",card[0]);
+            // addCardToDealersHand(card[0]);
+            dealCardToDisplay(card[0], false, true);
+        });
+    }
+    
+}
+
+function onHit(){
+    dealOneCard();
+}
+function dealersTurn(){
+    console.log("dealersTurn");
+    dealOneCard(false);
+    if(dealersHandValue < 16){
+        setTimeout(function() {
+            dealersTurn();
+        }, 1000);
+    }
+    else if(dealersHandValue >= 16 && dealersHandValue <= 21){
+        if(dealersHandValue > playersHandValue){
+            console.log("dealer wins");
+        }
+        else if(dealersHandValue === playersHandValue){
+            console.log("push");
+        }
+        else{
+            console.log("player wins");
+        }
+    }
+}
+
+function stand(){
     console.log("You stand");
+    didPlayerStand = true;
+    turnFaceDownCards();
+    dealersTurn();
     timeToBet();
 }
-);
-
-let playerBankroll = localStorage.getItem('bankroll') || 2022;
-
+// STAND BUTTON
 function getBankroll() {
     return Number(playerBankroll);
 }
@@ -134,6 +239,7 @@ function setBankroll(newBankroll) {
     localStorage.setItem('bankroll', newBankroll);
     playerBankroll = newBankroll;
 }
+
 function makeWager(event){
     event.preventDefault();
     console.log(wagerInput.value);
@@ -144,19 +250,15 @@ function timeToBet(){
     bettingSection.style.display = 'flex';
     bankrollSpan.innerText = `Bankroll: $${getBankroll()}`;
 }
-let deckId;
 
 function timeToPlay(){
     bettingSection.style.display = 'none';
     playersActionSection.style.display = 'flex';
-    drawFourCards(cards => {
-        console.log("Cards",cards);
-    }
-    );
 
     drawFourCards(dealFourCards);
-}
 
+
+}
 
 function getShoe(callback){
     const url = 'https://www.deckofcardsapi.com/api/deck/new/shuffle?deck_count=6';
@@ -172,10 +274,10 @@ function getShoe(callback){
 }
 
 getShoe(data => {
-    console.log("Called",data);
     deckId = data.deck_id;
     console.log("deckId",deckId);
 });
+
 function drawOneCard(callback){
     if(deckId === undefined){
         return;
@@ -189,6 +291,9 @@ function drawOneCard(callback){
         console.log("drawOneCard Error",error)
     });
     
+}
+function getFourCards(){
+    drawFourCards(dealFourCards);
 }
 function drawFourCards(callback){
     if(deckId === undefined){
@@ -207,9 +312,38 @@ function drawFourCards(callback){
 
 function dealFourCards(cards){
     console.log("dealFourCards",cards);
-    dealToPlayerDisplay(cards[0]);
-    dealToPlayerDisplay(cards[2]);
+    dealCardToDisplay(cards[0], false, false);
+    dealCardToDisplay(cards[2], false, false);
+    dealCardToDisplay(cards[1], true, true);
+    dealCardToDisplay(cards[3], false, true);
 
-    dealToDealerDisplay(cards[1], true);
-    dealToDealerDisplay(cards[3]);
+   
 }
+
+function removeChildren(domNode) {
+    while (domNode.firstChild) {
+      domNode.removeChild(domNode.firstChild);
+    }
+}
+function clearCards() {
+    removeChildren(dealersCardList);
+    removeChildren(playersCardList);
+}
+function turnFaceDownCards() {
+    const faceDownCards = dealersCardList.querySelectorAll('li.card[data-blackjack-value="?"]');
+    for (const card of faceDownCards){
+        //card.outerHTML = `${rankToWord(card.getAttribute('data-blackjack-rank'))} of ${suitToWord(card.getAttribute('data-blackjack-suit'))}`;
+        card.setAttribute('data-blackjack-value', rankToValue(card.getAttribute('data-blackjack-rank')));
+        card.querySelector('img').src = card.getAttribute('card-image-url');
+        card.querySelector('img').alt = `${rankToWord(card.getAttribute('data-blackjack-rank'))} of ${suitToWord(card.getAttribute('data-blackjack-suit'))}`;
+        card.querySelector('img').style.width = "50px";
+        card.querySelector('img').style.height = "75px";
+
+    }
+}
+
+// setTimeout(function() {
+//     stand();
+//     console.log("player timeout");
+    
+// }, 10000); 

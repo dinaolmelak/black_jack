@@ -60,16 +60,6 @@ header,footer{
     background-color: var(--purple);
     color: var(--primary-color);
 }
-header{
-    position: fixed;
-    top: 0px;
-    width: 100%; 
-    height: 80px;
-
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-}
 
 nav ul{
     display: flex;
@@ -80,6 +70,16 @@ nav ul{
 nav li{
     margin: 0 10px;
     border-right: 1px solid var(--primary-color);
+}
+header{
+    position: fixed;
+    top: 0px;
+    width: 100%; 
+    height: 80px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 }
 footer{
     width: 100%;
