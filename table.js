@@ -342,8 +342,8 @@ function turnFaceDownCards() {
     }
 }
 
-// setTimeout(function() {
-//     stand();
-//     console.log("player timeout");
-    
-// }, 10000); 
+setTimeout(function() {
+    console.log("player timeout");
+    stand();
+   
+}, 5000); 
