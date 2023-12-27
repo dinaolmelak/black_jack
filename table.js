@@ -140,7 +140,7 @@ function countCardsInHand(cardList, isDealer = false) {
     }
     if (dealersHandValue > 21){
         console.log("dealer busted", dealersHandValue);
-        // stand();
+        timeToBet();
     } else{
         console.log("dealer has", dealersHandValue);
     }
@@ -211,7 +211,7 @@ function dealersTurn(){
     }
     else if(dealersHandValue >= 16 && dealersHandValue <= 21){
         if(dealersHandValue > playersHandValue){
-            console.log("dealer wins");
+            console.log("Dealer wins");
         }
         else if(dealersHandValue === playersHandValue){
             console.log("push");
