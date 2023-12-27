@@ -204,12 +204,7 @@ function onHit(){
 function dealersTurn(){
     console.log("dealersTurn");
     dealOneCard(false);
-    if(dealersHandValue < 16){
-        setTimeout(function() {
-            dealersTurn();
-        }, 1000);
-    }
-    else if(dealersHandValue >= 16 && dealersHandValue <= 21){
+    if(dealersHandValue >= 16 && dealersHandValue <= 21){
         if(dealersHandValue > playersHandValue){
             console.log("Dealer wins");
         }
@@ -342,8 +337,8 @@ function turnFaceDownCards() {
     }
 }
 
-setTimeout(function() {
-    console.log("player timeout");
-    stand();
+// setTimeout(function() {
+//     console.log("player timeout");
+//     stand();
    
-}, 5000); 
+// }, 5000); 
