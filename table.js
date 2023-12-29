@@ -122,6 +122,7 @@ function timeToPlay() {
   bettingSection.classList.add("hidden");
   playersActionsSection.classList.remove("hidden");
   drawFourCards(dealFourCards);
+  startPlayerActionTimeout();
 }
 
 function drawFourCards(callback) {
@@ -202,8 +203,6 @@ function getPlayerTotal(getDealerTotal = false) {
   let total = 0;
   let aceCount = 0;
   for (const card of playersCards) {
-    console.log(card);
-
     if (card.dataset.blackjackValue == "?") {
       total += parseInt(rankToValue(dealersDownCard.value));
     } else if (card.dataset.blackjackValue == "11/1") {
@@ -272,3 +271,16 @@ function takeStakes(playerWon = false, wasPush = false, withANatural = false) {
     );
   setTimeout(timeToBet, 3000);
 }
+let playerActionTimeout;
+function startPlayerActionTimeout() {
+  playerActionTimeout = setTimeout(timeOutPlayer, 10000);
+}
+function timeOutPlayer() {
+  console.log("player timeout");
+  dealersTurn();
+}
+function cancelPlayerActionTimeout() {
+  clearTimeout(playerActionTimeout);
+}
+hitButton.addEventListener("click", cancelPlayerActionTimeout);
+standButton.addEventListener("click", cancelPlayerActionTimeout);
